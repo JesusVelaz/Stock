@@ -6,3 +6,4 @@ matplotlib==3.7.1
 streamlit-folium==0.11.1
 streamlit==1.21.0
 pandas==1.5.3
+plotly-express==0.4.0
