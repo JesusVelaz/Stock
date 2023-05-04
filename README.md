@@ -1,4 +1,4 @@
-This is a streamlit application used to display information regarding stocks.
+This is a streamlit application using the yahoo finance API to display information regarding inputted stocks.
 
 To view the application click on the link:
 https://jesusvelaz-stock-stockapi-g4zi7y.streamlit.app/
