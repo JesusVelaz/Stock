@@ -1,4 +1,4 @@
-#StockAPI
+# StockAPI
 This is a streamlit application using the yahoo finance API to display information regarding inputted stocks.
 
 To view the application click on this link:
