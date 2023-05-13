@@ -48,11 +48,9 @@ figure = go.Figure(
 )
 figure.update_layout(title = ticker, yaxis_title = 'Adj Close')
 st.plotly_chart(figure)
-check = st.checkbox('View company summary')
-if check:
-    st.subheader("Company Summary")
-    tickerSummary = tickerInfo.info['longBusinessSummary']
-    st.info(tickerSummary)
+st.subheader("Company Summary")
+tickerSummary = tickerInfo.info['longBusinessSummary']
+st.info(tickerSummary)
 address1 = tickerInfo.info['address1']
 city = tickerInfo.info['city']
 state = tickerInfo.info['state']
@@ -61,26 +59,25 @@ address = [address1, city, state, zip]
 address2 = [city, state, zip]
 
 
-if st.button('Display Map'):
-    st.subheader("Company Location")
-    try:
-        from geopy.geocoders import Nominatim
-        geolocator = Nominatim(timeout=10)
-        location = geolocator.geocode(address)
-        latitude = location.latitude
-        longitude = location.longitude
-        m = folium.Map(location=[latitude, longitude], zoom_start=10)
-        folium.Marker([latitude, longitude], popup="Station", tooltip="Station").add_to(m)
-        folium_static(m)
-    except:
-        from geopy.geocoders import Nominatim
-        geolocator = Nominatim(user_agent="MyApp")
-        location = geolocator.geocode(address2)
-        latitude = location.latitude
-        longitude = location.longitude
-        m = folium.Map(location=[latitude, longitude], zoom_start=10)
-        folium.Marker([latitude, longitude], popup="Station", tooltip="Station").add_to(m)
-        folium_static(m)
+st.subheader("Company Location")
+try:
+    from geopy.geocoders import Nominatim
+    geolocator = Nominatim(timeout=10)
+    location = geolocator.geocode(address)
+    latitude = location.latitude
+    longitude = location.longitude
+    m = folium.Map(location=[latitude, longitude], zoom_start=10)
+    folium.Marker([latitude, longitude], popup="Station", tooltip="Station").add_to(m)
+    folium_static(m)
+except:
+    from geopy.geocoders import Nominatim
+    geolocator = Nominatim(user_agent="MyApp")
+    location = geolocator.geocode(address2)
+    latitude = location.latitude
+    longitude = location.longitude
+    m = folium.Map(location=[latitude, longitude], zoom_start=10)
+    folium.Marker([latitude, longitude], popup="Station", tooltip="Station").add_to(m)
+    folium_static(m)
 
 
 
